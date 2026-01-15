@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Code:wght@300..700&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    margin: 50px auto;
+}
+#task-form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 500px;
+    margin: 10px 0;
+}
+#task-input{
+    width: 60%;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 12px;
+}
+#task-form button{
+    width: 15%;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 12px;
+    background-color: #008cff;
+    color: white;
+}
+.filters{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 32px;
+    margin: 10px 10px;
+    border-radius: 5px;
+    background-color: #9c9c9c;
+    border: 0.5px solid #9c9c9c;
+    gap: 0.5px;
+    overflow: hidden;
+}
+.filters button{
+    padding: 10px 20px;
+    border: none;
+    background-color: #e0e0e0;
+    font-size: 12px;
+    cursor: pointer;
+}
+.filters button.active{
+    background-color: #575757;
+    color: white;
+}
+#task-list{
+    list-style-type: none;
+    width: 70%;
+    height: 350px;
+    font-size: 12px;
+    padding: 5px;
+    overflow: auto;
+}
+#task-list li{
+    position: relative;
+    padding: 5px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+#task-list li label {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-left: 25px;
+}
+#task-list li::after {
+  content: '';
+  position: absolute;
+  bottom: 0;        /* place line below the item */
+  left: 0;
+  width: 100%;      /* make line full width */
+  height: 0.5px;      /* thin line height */
+  background-color: #9c9c9c;
+}
+#task-list li:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;       /* place line below the item */
+  left: 0;
+  width: 100%;      /* make line full width */
+  height: 0.5px;      /* thin line height */
+  background-color: #9c9c9c;
+}
+span{
+    font-size: 12px;
+    color: #9c9c9c;
+}

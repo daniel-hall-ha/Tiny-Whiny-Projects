@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        /* Styles the main container of the to-do list */
+        .todo-container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        /* Removes default list styling for the to-do list */
+        .todo-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Styles each list item in the to-do list */
+        li {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Adds spacing for buttons in list items */
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="todo-container">
+    <h1>To-Do List</h1>
+
+    <!-- Input field to add new tasks -->
+    <input type="text" id="taskInput" placeholder="Add a new task">
+    
+    <!-- Button to add a new task to the list -->
+    <button class="add-btn" onclick="addTask()">Add Task</button>
+    
+    <!-- Unordered list to display the tasks -->
+    <ul class="todo-list" id="todoList"></ul>
+</div>
+
+<script>
+    // Placeholder for functionality to be added in future exercises
+    function addTask() {
+        let taskInput = document.getElementById('taskInput');
+        let taskList = document.getElementById('todoList');
+
+        let new_task_node = document.createElement('li');
+
+        let new_task_name = document.createElement('span');
+        new_task_name.textContent = taskInput.value;
+
+        let new_task_action_edit = document.createElement('button');
+        new_task_action_edit.textContent = "Edit";
+        new_task_action_edit.onclick = () => editTask(new_task_name)
+
+        let new_task_action_delete = document.createElement('button');
+        new_task_action_delete.textContent = "Delete";
+        new_task_action_delete.onclick = () => deleteTask(new_task_node)
+
+        new_task_node.appendChild(new_task_name);
+        new_task_node.appendChild(new_task_action_edit);
+        new_task_node.appendChild(new_task_action_delete);
+
+        taskList.appendChild(new_task_node);
+        taskInput.value = "";
+    }
+
+    function editTask(node) {
+        const new_value = prompt("Enter new value");
+        if (new_value.trim() != "" && new_value != "")
+            node.textContent = new_value.trim();
+    }
+
+    function deleteTask(node) {
+        let taskList = document.getElementById('todoList');
+        taskList.removeChild(node);
+    }
+</script>
+
+</body>
+</html>
